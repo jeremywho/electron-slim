@@ -5,7 +5,7 @@ module.exports = (env: any) => {
   const mode = env.NODE_ENV;
   console.log(`Building main for ${mode}`);
   return {
-    context: path.join(__dirname, "src"),
+    context: path.join(__dirname, "src", "main"),
     target: "electron-main",
     mode,
     entry: {

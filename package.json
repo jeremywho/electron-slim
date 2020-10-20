@@ -1,5 +1,5 @@
 {
-  "name": "electron-boilerplate",
+  "name": "electron-slim",
   "version": "0.0.1",
   "author": "Jeremy Daughhetee",
   "license": "MIT",
@@ -20,8 +20,8 @@
   "scripts": {
     "build-dev": "webpack --env.NODE_ENV=development --config webpack.renderer.config.ts && webpack --env.NODE_ENV=development --config webpack.main.config.ts",
     "build-prod": "webpack --env.NODE_ENV=production --config webpack.renderer.config.ts && webpack --env.NODE_ENV=production --config webpack.main.config.ts",
-    "start-prod": "npm run build-prod && electron .",
-    "start-dev": "concurrently \"npm run server\" \"npm run start\"",
+    "prod": "npm run build-prod && electron .",
+    "dev": "concurrently \"npm run server\" \"npm run start\"",
     "server": "webpack-dev-server --env.NODE_ENV=development --config webpack.renderer.config.ts --hot",
     "start": "webpack --env.NODE_ENV=development --config webpack.main.config.ts && electron .",
     "dist": "npm run build-prod && electron-builder",

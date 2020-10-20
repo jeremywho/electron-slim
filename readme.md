@@ -4,11 +4,11 @@
 
 ### Run in development mode
 
-`npm run start-dev`
+`npm run dev`
 
 ### Run in production mode
 
-`npm run start-prod`
+`npm run prod`
 
 ## Build installer
 

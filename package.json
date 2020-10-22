@@ -18,12 +18,12 @@
   },
   "main": "./dist/main-process.js",
   "scripts": {
-    "build-dev": "webpack --env.NODE_ENV=development --config webpack.renderer.config.ts && webpack --env.NODE_ENV=development --config webpack.main.config.ts",
-    "build-prod": "webpack --env.NODE_ENV=production --config webpack.renderer.config.ts && webpack --env.NODE_ENV=production --config webpack.main.config.ts",
+    "build-dev": "webpack --mode=development --config webpack.renderer.config.ts && webpack --mode=development --config webpack.main.config.ts",
+    "build-prod": "webpack --mode=production --config webpack.renderer.config.ts && webpack --mode=production --config webpack.main.config.ts",
     "prod": "npm run build-prod && electron .",
     "dev": "concurrently \"npm run server\" \"npm run start\"",
-    "server": "webpack-dev-server --env.NODE_ENV=development --config webpack.renderer.config.ts --hot",
-    "start": "webpack --env.NODE_ENV=development --config webpack.main.config.ts && electron .",
+    "server": "webpack-dev-server --mode=development --config webpack.renderer.config.ts --hot",
+    "start": "webpack --mode=development --config webpack.main.config.ts && electron .",
     "dist": "npm run build-prod && electron-builder",
     "postinstall": "electron-builder install-app-deps"
   },

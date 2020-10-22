@@ -1,8 +1,12 @@
 import path from "path";
 import { DefinePlugin } from "webpack";
 
-module.exports = (env: any) => {
-  const mode = env.NODE_ENV;
+interface Args {
+  mode: "production" | "development";
+}
+
+module.exports = (_: any, args: Args) => {
+  const mode = args.mode;
   console.log(`Building main for ${mode}`);
   return {
     context: path.join(__dirname, "src", "main"),

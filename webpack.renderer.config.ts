@@ -1,8 +1,12 @@
 import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 
-module.exports = (env: any) => {
-  const mode = env.NODE_ENV;
+interface Args {
+  mode: "production" | "development";
+}
+
+module.exports = (_: any, args: Args) => {
+  const mode = args.mode;
   const isDev = mode == "development";
 
   console.log(`Building main for ${mode}`);
@@ -10,7 +14,7 @@ module.exports = (env: any) => {
     mode,
     context: path.join(__dirname, "src", "renderer"),
     target: "electron-renderer",
-    devtool: isDev ? "source-map" : "none",
+    devtool: isDev ? "source-map" : undefined,
     entry: {
       "render-process": "./render-process.tsx",
     },

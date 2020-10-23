@@ -1,12 +1,8 @@
 import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 
-interface Args {
-  mode: "production" | "development";
-}
-
-module.exports = (_: any, args: Args) => {
-  const mode = args.mode;
+module.exports = (_: any, argv: any) => {
+  const mode = argv.mode;
   const isDev = mode == "development";
 
   console.log(`Building main for ${mode}`);

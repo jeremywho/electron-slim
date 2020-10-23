@@ -1,9 +1,6 @@
 import { app, BrowserWindow } from "electron";
-import { join } from "path";
 
-declare const ENVIRONMENT: String;
-
-const IS_DEV = ENVIRONMENT == "development";
+const isDev = process.env.NODE_ENV !== "production";
 
 let win: BrowserWindow | null = null;
 
@@ -17,12 +14,11 @@ function createWindow() {
     },
   });
 
-  if (IS_DEV) {
+  if (isDev) {
     win.loadURL("http://localhost:6564");
     win.webContents.openDevTools({ mode: "detach" });
   } else {
     win.loadFile("./dist/index.html");
-    win.webContents.openDevTools({ mode: "detach" });
   }
 
   win.on("closed", () => {
@@ -44,5 +40,4 @@ app.on("activate", () => {
   if (win === null) {
     createWindow();
   }
-  console.log(">>> __dirname", __dirname, join(__dirname, "index.html"));
 });

@@ -1,5 +1,4 @@
 import path from "path";
-import { DefinePlugin } from "webpack";
 
 module.exports = (_: any, argv: any) => {
   const mode = argv.mode;
@@ -30,11 +29,5 @@ module.exports = (_: any, argv: any) => {
         },
       ],
     },
-
-    plugins: [
-      new DefinePlugin({
-        ENVIRONMENT: JSON.stringify(mode), // this variable name must match the one declared in the main process file.
-      }),
-    ],
   };
 };

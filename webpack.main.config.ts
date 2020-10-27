@@ -1,7 +1,7 @@
 import { join } from "path";
 
 module.exports = (_: any, argv: any) => {
-  const mode = argv.mode;
+  const { mode } = argv;
   console.log(`Building main for ${mode}`);
   return {
     context: join(__dirname, "src", "main"),

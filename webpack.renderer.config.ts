@@ -6,7 +6,6 @@ module.exports = (_: any, argv: any) => {
   const mode = argv.mode;
   const isDev = mode === "development";
   const port = parseInt(process.env.PORT || "6580") || 6580;
-  const isMac = process.platform === "darwin";
 
   console.log(`Building main for ${mode}`);
 
